@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    container_name: diary_app
+    ports:
+      - 5432:5432
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=diary_database
+      - POSTGRES_USER=barrav
+      - POSTGRES_PASSWORD=jkljkl
+
+volumes:
+  dbdata:
+
+# postgres://romeo:password@localhost:5432/database
