@@ -1,4 +1,4 @@
-const db = require('../database/connect')
+const db = require('../database/db')
 
 class DiaryEntries {
 
@@ -11,7 +11,7 @@ class DiaryEntries {
     
         }
         static async getAll() {
-            const response = await db
+            const response = await db.query()
         }
       
       }
