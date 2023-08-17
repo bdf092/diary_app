@@ -13,7 +13,19 @@ async function index(req,res){
 
     }
 }
+async function show(req,res){
+    try {
+
+    const diaryEntry = parseInt(req.params.id)
+    const entryData = Diary.findById(diaryEntry)
+    res.status(200).json(entryData)
+
+    } catch(err){
+    res.status(500).json({error: err.message} )
+
+    }
+}
 
 module.exports = {
-    index
+    index,show
 }
