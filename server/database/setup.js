@@ -1,16 +1,15 @@
-require("dotenv").config(); // Load environment config
-const fs = require('fs');
+require('dotenv').config()
+const fs = require('fs')
 
-const db = require("./db"); // Make sure your variables (dotenv) are loaded before the database
-
-
-
-// Load in the SQL statements
-const sql = fs.readFileSync(__dirname + 'setup.sql').toString();
+const db = require('./connect')
 
 
+const sql = fs.readFileSync(__dirname + "/data.sql").toString() // Will let me come up the absolute path
 
-// Run the query - I am about to interact with my db
+
 db.query(sql)
-    .then(data => console.log("Set-up complete."))
-    .catch(error => console.log(error));
+  .then(data => {
+    db.end()
+    console.log("Setup-complete")
+  })
+  .catch(error => console.log(error))
