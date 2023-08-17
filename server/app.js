@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const logger = require('morgan')
+const diaryRouter = require('./routers/routers')
 
 const app = express()
 
@@ -10,9 +11,11 @@ app.use(logger('dev'))
 
 app.get('/', (req,res) => {
     res.json({
-        name: "Country API",
+        name: "Diary  API",
         description: "Welcome to our diary_app"
     })
 })
+
+// app.use('/entries',diaryRouter)
 
 module.exports = app
