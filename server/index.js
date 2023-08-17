@@ -1,4 +1,5 @@
-require('dotenv').config() // Make sure you are importing from .env file
+require('dotenv').config()
+const db = require('./database/db');
 
 const app = require('./app')
 const port = 3000

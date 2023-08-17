@@ -1,3 +1,5 @@
+
+
 class DiaryEntries {
 
     constructor(data) {
@@ -8,7 +10,12 @@ class DiaryEntries {
           this.cateogry = data.category
     
         }
+        static async getAll() {
+            const response = await db
+        }
       
       }
+
+    
     
     module.exports = DiaryEntries
