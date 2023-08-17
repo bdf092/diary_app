@@ -5,6 +5,7 @@ const diaryRouter = Router()
 
 diaryRouter.get('/', diaryController.index)
 diaryRouter.get('/:id', diaryController.index)
+diaryRouter.post('/', diaryController.create)
 
 
 
