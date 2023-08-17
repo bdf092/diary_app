@@ -1,8 +1,7 @@
 require('dotenv').config()
-const db = require('./database/db');
 
 const app = require('./app')
-const port = 3000
+const port = process.env.PORT
 
 app.listen(port, () => {
     console.log(`API running on port ${port}`)
