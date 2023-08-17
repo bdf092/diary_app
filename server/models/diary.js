@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 const db = require('../database/connect')
->>>>>>> 1a06998b4aa000d3f8e34b38da68110ff1170d31
 
 class Diary {
 
@@ -42,37 +38,21 @@ class Diary {
   
   
           return new Diary(response.rows[0])
-      }
-
-
-<<<<<<< HEAD
-module.exports = Diary;
-=======
-const db = require('../database/connect')
-
-class DiaryEntries {
-
-    constructor(data) {
-          this.id = data.id
-          this.date = data.date
-          this.time = data.time
-          this.text = data.text
-          this.cateogry = data.category
-    
         }
-        static async getAll() {
-            const response = await db
-        }
-=======
->>>>>>> 1a06998b4aa000d3f8e34b38da68110ff1170d31
-      
-      }
 
+        static async deleteById(id) {
+            const result = await db.query(
+            'DELETE FROM entries WHERE id = $1 RETURNING *', 
+            [id]
+            )
+        
+            if (result.rowCount === 0) {
+            return false 
+            }
+        
+            return true
+        }
     
+}
     
-<<<<<<< HEAD
-    module.exports = DiaryEntries
->>>>>>> 459511b63feb4c61e60bf560c5086585fbab666b
-=======
     module.exports = Diary
->>>>>>> 1a06998b4aa000d3f8e34b38da68110ff1170d31
