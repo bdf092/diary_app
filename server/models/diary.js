@@ -38,12 +38,21 @@ class Diary {
   
   
           return new Diary(response.rows[0])
-      }
+        }
 
-
-      
-      }
-
+        static async deleteById(id) {
+            const result = await db.query(
+            'DELETE FROM entries WHERE id = $1 RETURNING *', 
+            [id]
+            )
+        
+            if (result.rowCount === 0) {
+            return false 
+            }
+        
+            return true
+        }
     
+}
     
     module.exports = Diary
